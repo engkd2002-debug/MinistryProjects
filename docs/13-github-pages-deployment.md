@@ -31,3 +31,13 @@ These are local compatibility checks. Public deployment remains separately gated
 `git ls-remote origin` succeeded. GitHub CLI authentication was not usable; actual requests to `https://api.github.com/user` and the repository endpoint returned **Forbidden**. The cloud policy does not currently allow `api.github.com`; no GitHub REST connector is available in this session. This blocks account/visibility/plan inspection, enabling Pages and inspecting/running deployments through the API. Git transport is tested independently; its push result is recorded below after the attempt.
 
 Required platform access: authenticated Git write access to this repository, GitHub API access with repository/workflow/Pages administration, and HTTPS access to the resulting GitHub Pages host for verification. Do not paste credentials into source or chat. Do not change a private repository to public to bypass a Pages plan restriction.
+
+## Publication result
+
+The application and deployment workflow were successfully pushed to **main** in the existing repository. Initial publication commit: `9f705d6`. Git remote publication succeeded without changing repository visibility.
+
+Enabling Pages (`POST /repos/engkd2002-debug/MinistryProjects/pages`) and inspecting the Pages workflow both returned **Forbidden** at `api.github.com`. The HTTPS check for `engkd2002-debug.github.io` failed at the cloud CONNECT proxy with HTTP 403. Therefore no live deployment success or public site availability is claimed. The deployment workflow is present, but its run outcome and Pages plan/settings remain unverified.
+
+A narrow environment network draft adds only `api.github.com` and `engkd2002-debug.github.io`, retaining existing package-manager access. The environment owner must review/save and publish that draft before its runtime policy changes. After it is active, recheck GitHub API authentication, enable Pages if permitted under the repository's current visibility/plan, inspect/rerun the Actions workflow and verify the public site. If API credentials are still rejected after network access is granted, request the platform's secure GitHub authorization flow rather than collecting tokens in chat.
+
+Expected address after a successful Pages deployment: `https://engkd2002-debug.github.io/MinistryProjects/explorer` — **not verified live**.
