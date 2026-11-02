@@ -1,0 +1,52 @@
+[
+  {
+    "route": "/explorer",
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "route": "/dev/design-system",
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "route": "dialog",
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "route": "/explorer Arabic",
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "route": "/dev/design-system Arabic",
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "route": "/explorer",
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "route": "/dev/design-system",
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "route": "dialog",
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "route": "/explorer Arabic",
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "route": "/dev/design-system Arabic",
+    "theme": "dark",
+    "violations": []
+  }
+]

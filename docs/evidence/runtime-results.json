@@ -1,0 +1,301 @@
+{
+  "method": "Fresh Chromium context; original HTML served over loopback; remote dependencies deliberately blocked for repeatable offline baseline. Some domain probes call original functions directly; these do not prove UI reachability or authorization.",
+  "errors": [],
+  "checks": [
+    {
+      "name": "baseline",
+      "result": {
+        "seed": 150,
+        "visible": 150,
+        "role": "admin",
+        "governorates": 14,
+        "cities": 22,
+        "universities": 15,
+        "statuses": {
+          "draft": 6,
+          "entered": 0,
+          "review": 3,
+          "approved": 1,
+          "published": 140,
+          "rejected": 0
+        },
+        "xlsxAvailable": false,
+        "hash": ""
+      }
+    },
+    {
+      "name": "researcher input does not filter",
+      "result": {
+        "res": "IMPOSSIBLE_RESEARCHER",
+        "count": 150
+      }
+    },
+    {
+      "name": "text search scopes counts and hash",
+      "result": {
+        "count": 12,
+        "cards": 12,
+        "hash": "#q=%D8%B4%D9%85%D8%B3%D9%8A",
+        "kpi": "12"
+      }
+    },
+    {
+      "name": "linked governorate",
+      "result": {
+        "count": 57,
+        "allDamascus": true,
+        "cities": [
+          "",
+          "دمشق"
+        ]
+      }
+    },
+    {
+      "name": "zoom city level",
+      "result": {
+        "level": 2,
+        "nodes": 13
+      }
+    },
+    {
+      "name": "zoom project dots",
+      "result": {
+        "level": 3,
+        "dots": 88
+      }
+    },
+    {
+      "name": "cluster panel",
+      "result": "×\nحلب\n26 مشروعًا بحثيًا\nالجامعات\nجامعة حلب\n26\nأكثر الاختصاصات\nالهندسة الزراعية\n6\nالعلوم الأساسية\n6\nالهندسة المعلوماتية\n5\nعرض المشاريع"
+    },
+    {
+      "name": "cluster show projects",
+      "result": {
+        "gov": "ALE",
+        "city": "",
+        "count": 26,
+        "zoom": 2.6
+      }
+    },
+    {
+      "name": "map overlays",
+      "result": {
+        "HEAT": true,
+        "GAP": true,
+        "COL": true,
+        "edges": 45
+      }
+    },
+    {
+      "name": "editable thresholds",
+      "result": [
+        5,
+        26,
+        43
+      ]
+    },
+    {
+      "name": "dashboard charts",
+      "result": {
+        "panels": 8,
+        "drillTargets": 47,
+        "gapCells": 98
+      }
+    },
+    {
+      "name": "chart drill",
+      "result": {
+        "year": "2019",
+        "count": 20,
+        "dashboardOpen": false
+      }
+    },
+    {
+      "name": "smart matching",
+      "result": {
+        "matches": 29,
+        "count": 29,
+        "parsed": "المفاهيم: الطاقة",
+        "first": {
+          "score": 8,
+          "why": [
+            "تطابق الموضوع: الطاقة"
+          ]
+        }
+      }
+    },
+    {
+      "name": "smart no match fallback",
+      "result": {
+        "smart": null,
+        "count": 150,
+        "toast": "لا نتائج مطابقة"
+      }
+    },
+    {
+      "name": "comparison limit",
+      "result": {
+        "selected": 8,
+        "toast": "الحد الأقصى 8 أبحاث"
+      }
+    },
+    {
+      "name": "import staged validation",
+      "result": [
+        {
+          "line": 2,
+          "errors": [],
+          "warnings": [
+            "بلا ملخص",
+            "بلا كلمات مفتاحية"
+          ]
+        },
+        {
+          "line": 3,
+          "errors": [
+            "محافظة غير معروفة"
+          ],
+          "warnings": [
+            "بلا ملخص",
+            "بلا كلمات مفتاحية"
+          ]
+        },
+        {
+          "line": 4,
+          "errors": [
+            "سنة غير صالحة"
+          ],
+          "warnings": [
+            "بلا ملخص",
+            "بلا كلمات مفتاحية"
+          ]
+        },
+        {
+          "line": 5,
+          "errors": [],
+          "warnings": [
+            "بلا ملخص",
+            "بلا كلمات مفتاحية",
+            "مكرر داخل الملف"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "import commit excluding warnings",
+      "result": {
+        "records": 150,
+        "stage": null,
+        "toast": "0 سجلًا مستوردًا (دفعة BMVYWTACQ)"
+      }
+    },
+    {
+      "name": "reject requires reason",
+      "result": {
+        "id": "61",
+        "status": "review",
+        "toast": "اكتب سبب الرفض"
+      }
+    },
+    {
+      "name": "queue direct publish from any nonpublished state",
+      "result": {
+        "id": "61",
+        "before": "review",
+        "after": "published"
+      }
+    },
+    {
+      "name": "viewer comparison visibility leak",
+      "result": {
+        "hiddenTitle": "تحليل سلاسل القيمة للمنتجات الزراعية المحلية",
+        "hiddenInComparison": true,
+        "visibleCount": 141
+      }
+    },
+    {
+      "name": "custom field metadata not rendered as type",
+      "result": {
+        "inputType": "text"
+      }
+    },
+    {
+      "name": "create title/researcher validation",
+      "result": {
+        "required": "العنوان والباحث مطلوبان",
+        "record": {
+          "id": 151,
+          "rid": "SRP-2026-DAM-000151",
+          "ex": {},
+          "audit": [
+            {
+              "t": "2026-11-02",
+              "by": "admin",
+              "a": "إنشاء"
+            }
+          ],
+          "title": "Audit created record",
+          "title_en": "",
+          "type": "مشروع بحثي",
+          "year": 2026,
+          "status": "entered",
+          "researcher": "Audit researcher",
+          "co": "",
+          "gov": "DAM",
+          "city": "دمشق",
+          "uni": "",
+          "faculty": "",
+          "dept": "",
+          "spec": "",
+          "branch": "",
+          "abs": "",
+          "abs_en": "",
+          "kw": "",
+          "url": ""
+        },
+        "saved": true
+      }
+    },
+    {
+      "name": "CSV export actual download",
+      "result": {
+        "filename": "research-projects.csv"
+      }
+    },
+    {
+      "name": "XLSX offline falls back CSV",
+      "result": {
+        "filename": "research-projects.csv"
+      }
+    },
+    {
+      "name": "browser back hash not hydrated",
+      "result": {
+        "q": "المياه",
+        "hash": "#q=%D8%A7%D9%84%D8%B7%D8%A7%D9%82%D8%A9"
+      }
+    },
+    {
+      "name": "language theme",
+      "result": {
+        "lang": "en",
+        "dir": "ltr",
+        "dark": true,
+        "roleLabels": [
+          "مدير النظام",
+          "مراجع",
+          "محرر",
+          "قارئ"
+        ]
+      }
+    },
+    {
+      "name": "mobile overflow",
+      "result": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "mapWidth": 390
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+Markdown files: 9
+Inventory IDs: 48
+Matrix IDs: 48
+Source hashes: preserved
+Runtime diagnostic observations: 27
+Runtime page exceptions: 0
+Screenshots: 10
+Missing local link targets: 0
+Note: this validates documentation integrity, not application acceptance or accessibility compliance.

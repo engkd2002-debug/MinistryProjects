@@ -1,0 +1,534 @@
+{
+  "governorates": [
+    {
+      "id": "DAM",
+      "name_ar": "دمشق",
+      "name_en": "Damascus",
+      "lon": 36.29,
+      "lat": 33.51
+    },
+    {
+      "id": "RIF",
+      "name_ar": "ريف دمشق",
+      "name_en": "Rif Dimashq",
+      "lon": 36.85,
+      "lat": 33.75
+    },
+    {
+      "id": "DAR",
+      "name_ar": "درعا",
+      "name_en": "Daraa",
+      "lon": 36.12,
+      "lat": 32.75
+    },
+    {
+      "id": "SUW",
+      "name_ar": "السويداء",
+      "name_en": "As-Suwayda",
+      "lon": 36.75,
+      "lat": 32.75
+    },
+    {
+      "id": "QUN",
+      "name_ar": "القنيطرة",
+      "name_en": "Quneitra",
+      "lon": 35.9,
+      "lat": 33.1
+    },
+    {
+      "id": "HOM",
+      "name_ar": "حمص",
+      "name_en": "Homs",
+      "lon": 37.1,
+      "lat": 34.4
+    },
+    {
+      "id": "HAM",
+      "name_ar": "حماة",
+      "name_en": "Hama",
+      "lon": 36.7,
+      "lat": 35.2
+    },
+    {
+      "id": "TAR",
+      "name_ar": "طرطوس",
+      "name_en": "Tartus",
+      "lon": 35.95,
+      "lat": 34.85
+    },
+    {
+      "id": "LAT",
+      "name_ar": "اللاذقية",
+      "name_en": "Latakia",
+      "lon": 35.95,
+      "lat": 35.5
+    },
+    {
+      "id": "IDL",
+      "name_ar": "إدلب",
+      "name_en": "Idlib",
+      "lon": 36.65,
+      "lat": 35.8
+    },
+    {
+      "id": "ALE",
+      "name_ar": "حلب",
+      "name_en": "Aleppo",
+      "lon": 37.4,
+      "lat": 36.2
+    },
+    {
+      "id": "RAQ",
+      "name_ar": "الرقة",
+      "name_en": "Raqqa",
+      "lon": 38.9,
+      "lat": 35.95
+    },
+    {
+      "id": "DEZ",
+      "name_ar": "دير الزور",
+      "name_en": "Deir ez-Zor",
+      "lon": 40.3,
+      "lat": 35.1
+    },
+    {
+      "id": "HAS",
+      "name_ar": "الحسكة",
+      "name_en": "Al-Hasakah",
+      "lon": 41,
+      "lat": 36.5
+    }
+  ],
+  "cities": [
+    {
+      "id": "C001",
+      "governorate_id": "DAM",
+      "name_ar": "دمشق",
+      "name_en": "Damascus",
+      "lon": 36.29,
+      "lat": 33.51
+    },
+    {
+      "id": "C002",
+      "governorate_id": "RIF",
+      "name_ar": "جرمانا",
+      "name_en": "Jaramana",
+      "lon": 36.35,
+      "lat": 33.49
+    },
+    {
+      "id": "C003",
+      "governorate_id": "RIF",
+      "name_ar": "دوما",
+      "name_en": "Douma",
+      "lon": 36.4,
+      "lat": 33.57
+    },
+    {
+      "id": "C004",
+      "governorate_id": "RIF",
+      "name_ar": "الزبداني",
+      "name_en": "Zabadani",
+      "lon": 36.1,
+      "lat": 33.72
+    },
+    {
+      "id": "C005",
+      "governorate_id": "RIF",
+      "name_ar": "دير عطية",
+      "name_en": "Deir Atiyah",
+      "lon": 36.77,
+      "lat": 34.07
+    },
+    {
+      "id": "C006",
+      "governorate_id": "ALE",
+      "name_ar": "حلب",
+      "name_en": "Aleppo",
+      "lon": 37.16,
+      "lat": 36.2
+    },
+    {
+      "id": "C007",
+      "governorate_id": "ALE",
+      "name_ar": "اعزاز",
+      "name_en": "Azaz",
+      "lon": 37.05,
+      "lat": 36.59
+    },
+    {
+      "id": "C008",
+      "governorate_id": "HOM",
+      "name_ar": "حمص",
+      "name_en": "Homs",
+      "lon": 36.72,
+      "lat": 34.73
+    },
+    {
+      "id": "C009",
+      "governorate_id": "HOM",
+      "name_ar": "تدمر",
+      "name_en": "Palmyra",
+      "lon": 38.28,
+      "lat": 34.55
+    },
+    {
+      "id": "C010",
+      "governorate_id": "HAM",
+      "name_ar": "حماة",
+      "name_en": "Hama",
+      "lon": 36.75,
+      "lat": 35.13
+    },
+    {
+      "id": "C011",
+      "governorate_id": "LAT",
+      "name_ar": "اللاذقية",
+      "name_en": "Latakia",
+      "lon": 35.78,
+      "lat": 35.52
+    },
+    {
+      "id": "C012",
+      "governorate_id": "LAT",
+      "name_ar": "جبلة",
+      "name_en": "Jableh",
+      "lon": 35.93,
+      "lat": 35.36
+    },
+    {
+      "id": "C013",
+      "governorate_id": "TAR",
+      "name_ar": "طرطوس",
+      "name_en": "Tartus",
+      "lon": 35.89,
+      "lat": 34.89
+    },
+    {
+      "id": "C014",
+      "governorate_id": "TAR",
+      "name_ar": "بانياس",
+      "name_en": "Baniyas",
+      "lon": 35.95,
+      "lat": 35.18
+    },
+    {
+      "id": "C015",
+      "governorate_id": "IDL",
+      "name_ar": "إدلب",
+      "name_en": "Idlib",
+      "lon": 36.63,
+      "lat": 35.93
+    },
+    {
+      "id": "C016",
+      "governorate_id": "RAQ",
+      "name_ar": "الرقة",
+      "name_en": "Raqqa",
+      "lon": 39.01,
+      "lat": 35.95
+    },
+    {
+      "id": "C017",
+      "governorate_id": "DEZ",
+      "name_ar": "دير الزور",
+      "name_en": "Deir ez-Zor",
+      "lon": 40.14,
+      "lat": 35.34
+    },
+    {
+      "id": "C018",
+      "governorate_id": "HAS",
+      "name_ar": "الحسكة",
+      "name_en": "Al-Hasakah",
+      "lon": 40.75,
+      "lat": 36.5
+    },
+    {
+      "id": "C019",
+      "governorate_id": "HAS",
+      "name_ar": "القامشلي",
+      "name_en": "Qamishli",
+      "lon": 41.22,
+      "lat": 37.05
+    },
+    {
+      "id": "C020",
+      "governorate_id": "DAR",
+      "name_ar": "درعا",
+      "name_en": "Daraa",
+      "lon": 36.1,
+      "lat": 32.62
+    },
+    {
+      "id": "C021",
+      "governorate_id": "SUW",
+      "name_ar": "السويداء",
+      "name_en": "As-Suwayda",
+      "lon": 36.57,
+      "lat": 32.7
+    },
+    {
+      "id": "C022",
+      "governorate_id": "QUN",
+      "name_ar": "القنيطرة",
+      "name_en": "Quneitra",
+      "lon": 35.82,
+      "lat": 33.12
+    }
+  ],
+  "universities": [
+    {
+      "id": "U001",
+      "name_ar": "جامعة دمشق",
+      "city": "دمشق"
+    },
+    {
+      "id": "U002",
+      "name_ar": "الجامعة الافتراضية السورية",
+      "city": "دمشق"
+    },
+    {
+      "id": "U003",
+      "name_ar": "المعهد العالي للعلوم التطبيقية والتكنولوجيا",
+      "city": "دمشق"
+    },
+    {
+      "id": "U004",
+      "name_ar": "جامعة القلمون",
+      "city": "دير عطية"
+    },
+    {
+      "id": "U005",
+      "name_ar": "جامعة حلب",
+      "city": "حلب"
+    },
+    {
+      "id": "U006",
+      "name_ar": "جامعة البعث",
+      "city": "حمص"
+    },
+    {
+      "id": "U007",
+      "name_ar": "جامعة حماة",
+      "city": "حماة"
+    },
+    {
+      "id": "U008",
+      "name_ar": "جامعة تشرين",
+      "city": "اللاذقية"
+    },
+    {
+      "id": "U009",
+      "name_ar": "جامعة طرطوس",
+      "city": "طرطوس"
+    },
+    {
+      "id": "U010",
+      "name_ar": "جامعة إدلب",
+      "city": "إدلب"
+    },
+    {
+      "id": "U011",
+      "name_ar": "جامعة الفرات",
+      "city": "دير الزور"
+    },
+    {
+      "id": "U012",
+      "name_ar": "جامعة الرقة",
+      "city": "الرقة"
+    },
+    {
+      "id": "U013",
+      "name_ar": "جامعة الجزيرة",
+      "city": "الحسكة"
+    },
+    {
+      "id": "U014",
+      "name_ar": "جامعة درعا",
+      "city": "درعا"
+    },
+    {
+      "id": "U015",
+      "name_ar": "جامعة السويداء",
+      "city": "السويداء"
+    }
+  ],
+  "specialties": [
+    {
+      "id": "S01",
+      "name_ar": "الهندسة المعلوماتية",
+      "faculty": "كلية الهندسة المعلوماتية",
+      "branches": ["الذكاء الاصطناعي", "الأمن السيبراني", "هندسة البرمجيات", "الشبكات والاتصالات"]
+    },
+    {
+      "id": "S02",
+      "name_ar": "الهندسة المدنية",
+      "faculty": "كلية الهندسة المدنية",
+      "branches": ["الهندسة الإنشائية", "هندسة الموارد المائية"]
+    },
+    {
+      "id": "S03",
+      "name_ar": "الهندسة الزراعية",
+      "faculty": "كلية الزراعة",
+      "branches": ["علوم التربة", "وقاية النبات", "الاقتصاد الزراعي"]
+    },
+    {
+      "id": "S04",
+      "name_ar": "الطب البشري",
+      "faculty": "كلية الطب البشري",
+      "branches": ["الصحة العامة", "الأمراض الجرثومية"]
+    },
+    {
+      "id": "S05",
+      "name_ar": "الهندسة الكهربائية",
+      "faculty": "كلية الهندسة الكهربائية",
+      "branches": ["الطاقات المتجددة", "الأتمتة والتحكم"]
+    },
+    {
+      "id": "S06",
+      "name_ar": "العلوم الأساسية",
+      "faculty": "كلية العلوم",
+      "branches": ["الكيمياء التطبيقية", "علوم البيئة"]
+    }
+  ],
+  "types": [
+    {
+      "id": "T01",
+      "name_ar": "بحث تخرج",
+      "name_en": "Graduation project"
+    },
+    {
+      "id": "T02",
+      "name_ar": "رسالة ماجستير",
+      "name_en": "Master thesis"
+    },
+    {
+      "id": "T03",
+      "name_ar": "أطروحة دكتوراه",
+      "name_en": "PhD dissertation"
+    },
+    {
+      "id": "T04",
+      "name_ar": "بحث محكم",
+      "name_en": "Peer-reviewed paper"
+    },
+    {
+      "id": "T05",
+      "name_ar": "مشروع بحثي",
+      "name_en": "Research project"
+    },
+    {
+      "id": "T06",
+      "name_ar": "دراسة",
+      "name_en": "Study"
+    },
+    {
+      "id": "T07",
+      "name_ar": "بحث تطبيقي",
+      "name_en": "Applied research"
+    }
+  ],
+  "statuses": [
+    {
+      "id": "draft",
+      "name_ar": "مسودة"
+    },
+    {
+      "id": "entered",
+      "name_ar": "تم الإدخال"
+    },
+    {
+      "id": "review",
+      "name_ar": "قيد المراجعة"
+    },
+    {
+      "id": "approved",
+      "name_ar": "معتمد"
+    },
+    {
+      "id": "published",
+      "name_ar": "منشور"
+    },
+    {
+      "id": "rejected",
+      "name_ar": "مرفوض"
+    }
+  ],
+  "categories": [
+    {
+      "k": "city",
+      "l": "حسب المدينة|By city",
+      "d": "",
+      "ty": "select"
+    },
+    {
+      "k": "uni",
+      "l": "حسب الجامعة|By university",
+      "d": "",
+      "ty": "select"
+    },
+    {
+      "k": "spec",
+      "l": "حسب الاختصاص|By specialty",
+      "d": "",
+      "ty": "select"
+    },
+    {
+      "k": "branch",
+      "l": "حسب الفرع|By branch",
+      "d": "",
+      "ty": "select"
+    },
+    {
+      "k": "year",
+      "l": "سنة الإصدار|Year",
+      "d": "",
+      "ty": "select"
+    },
+    {
+      "k": "researcher",
+      "l": "اسم الباحث|Researcher",
+      "d": "",
+      "ty": "select"
+    }
+  ],
+  "synonyms": [
+    {
+      "concept": "الذكاء الاصطناعي",
+      "terms": ["ذكاء", "اصطناعي", "تعلم", "عميق", "عصبون", "ai"]
+    },
+    {
+      "concept": "الطاقة",
+      "terms": ["طاقه", "شمسي", "رياح", "كهروضوئي", "كهربائي"]
+    },
+    {
+      "concept": "المياه",
+      "terms": ["مياه", "مائي", "جوفيه", "ري", "صرف"]
+    },
+    {
+      "concept": "الصحة",
+      "terms": ["صحه", "طب", "مرض", "جرثومي", "دواء", "وبائي"]
+    },
+    {
+      "concept": "الأمن السيبراني",
+      "terms": ["امن", "سيبراني", "حمايه", "تشفير"]
+    },
+    {
+      "concept": "الزراعة",
+      "terms": ["زراعه", "قمح", "تربه", "حمضيات", "محصول"]
+    },
+    {
+      "concept": "البيئة",
+      "terms": ["بيئه", "تصحر", "تلوث", "هواء", "مناخ"]
+    },
+    {
+      "concept": "الأبنية والزلازل",
+      "terms": ["زلازل", "ابنيه", "خرسانه", "انشائي"]
+    },
+    {
+      "concept": "التحول الرقمي",
+      "terms": ["رقمي", "تحول", "منصه", "حكومي"]
+    }
+  ]
+}

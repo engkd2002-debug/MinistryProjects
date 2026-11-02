@@ -1,0 +1,37 @@
+[
+  {
+    "theme": "Light",
+    "surface": "filters",
+    "violations": []
+  },
+  {
+    "theme": "Light",
+    "surface": "layers",
+    "violations": []
+  },
+  {
+    "theme": "Light",
+    "surface": "preview",
+    "violations": []
+  },
+  {
+    "theme": "Dark",
+    "surface": "filters",
+    "violations": []
+  },
+  {
+    "theme": "Dark",
+    "surface": "layers",
+    "violations": []
+  },
+  {
+    "theme": "Dark",
+    "surface": "preview",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "surface": "Arabic mobile context",
+    "violations": []
+  }
+]

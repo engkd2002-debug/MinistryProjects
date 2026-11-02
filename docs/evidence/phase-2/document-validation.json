@@ -1,0 +1,33 @@
+{
+  "featureGroups": 48,
+  "traceabilityGroups": 48,
+  "sourceHashes": {
+    "syria-research-observatory_v2_prototype.html": "3ec5d7338ce583e643ec3d1c7fec0566a0238959abcd451e42a29af9c88da44c",
+    "Syrian_National_Research_Platform_PRD_v1.docx": "70d791962a6a097f5fce433583cd0cc50aca7ee960ca3413b99fde87bc3843ab"
+  },
+  "missingLinkTargets": [],
+  "unitPassed": 41,
+  "unitFailed": 0,
+  "browserPassed": 15,
+  "browserFailed": 0,
+  "accessibilityScans": 10,
+  "reportedAccessibilityViolations": 0,
+  "productionSmoke": {
+    "recordedAt": "2026-11-02T07:59:10.433Z",
+    "browser": "Chromium",
+    "explorerWorks": true,
+    "devLinkAbsent": true,
+    "galleryExcluded": true,
+    "runtimeErrors": [],
+    "screenshotViewports": {
+      "desktop": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobile": {
+        "width": 390,
+        "height": 844
+      }
+    }
+  }
+}

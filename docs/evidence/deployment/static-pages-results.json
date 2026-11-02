@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": [
+    "Real static 404 redirects to index and restores clean nested route/query",
+    "Direct explorer refresh preserves filters",
+    "English LTR and dark mode operate under repository base",
+    "Other workspace navigation and refresh retain repository prefix",
+    "Repository landing redirects to Explorer",
+    "Arabic RTL responsive mobile remains within viewport",
+    "Light mode works after Arabic switching",
+    "No broken JS/CSS/fonts/favicon or runtime errors"
+  ],
+  "errors": [],
+  "brokenAssets": [],
+  "scope": "Local GitHub Pages equivalent only; not a live deployment"
+}

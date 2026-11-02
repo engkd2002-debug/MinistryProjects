@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "baseURL": "http://127.0.0.1:4173",
+  "checks": [
+    "Production route, Arabic default, original paths and published-only source counts",
+    "Interactive context, distribution layer and bilingual light/dark production rendering",
+    "Rendered research identifiers match published source records exactly",
+    "Direct production deep-link query hydration and source-count parity",
+    "Development showcase excluded from production navigation and routing",
+    "No runtime or console errors"
+  ],
+  "errors": []
+}

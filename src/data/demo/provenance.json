@@ -1,0 +1,11 @@
+{
+  "source": "docs/sources/syria-research-observatory_v2_prototype.html",
+  "sha256": "3ec5d7338ce583e643ec3d1c7fec0566a0238959abcd451e42a29af9c88da44c",
+  "fixtureVersion": "prototype-v2-seed-11",
+  "seed": 11,
+  "synthetic": true,
+  "officialStatistics": false,
+  "coordinatesVerified": false,
+  "referenceIds": "Frozen positional mapping from the exact source order; never regenerate by display-name sort.",
+  "recordCount": 150
+}

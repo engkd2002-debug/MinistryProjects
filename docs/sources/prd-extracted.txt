@@ -1,0 +1,565 @@
+Syrian National Research Platform
+Product Requirements Document + UX Decision Record + AI Implementation Contract  |  Version 1.0
+Working product name: Syrian National Research Observatory / المرصد الوطني للبحث العلمي السوري. Product status: design and implementation specification; NOT an assertion that the current HTML prototype is production-ready. Language of this PRD: English; interface must be Arabic-first with complete English support.
+Prepared: 01 November 2026. Intended readers: project sponsors, academic/government stakeholders, UX/UI designers, data stewards, engineering and AI coding agents, QA engineers, accessibility reviewers. Decision status: proposed unless explicitly labeled “prototype-confirmed.”
+0. How to use this document
+Build contract: P0 requirements are mandatory for an initial trustworthy release; P1 requirements complete the core research intelligence experience; P2 items are later opportunities.
+Source labels: [H] means implemented or explicitly described by the supplied HTML prototype; [P] means strategic intent shown in the supplied presentation; [N] means a new product requirement based on the user’s brief or a design recommendation. The prototype is the primary source.
+Acceptance first: every requirement has observable acceptance criteria. AI implementation tools must not replace these with aesthetically impressive but nonfunctional screens.
+Safety of interpretation: demonstration records, simulated rankings, local-storage users, and visual gaps must never be presented as verified national statistics, formal accreditation, or investment recommendations.
+Open decisions: unresolved policy and institutional decisions appear in Section 19. Builders should use configurable defaults and flag dependencies instead of inventing facts.
+1. Executive product brief
+1.1 Problem
+Syrian scientific work is distributed across universities, postgraduate programs, hospitals, research centers, laboratories, institutes, and other institutions. Records vary in availability, format, completeness, classification and review status. A researcher cannot reliably discover prior work or compare related studies; a steward cannot see the quality of coverage; and decision-makers cannot distinguish a genuinely underserved research area from missing or unreported data. [P]
+1.2 Product vision
+Build a national, bilingual, interactive discovery and research-intelligence platform that makes research findable, comparable, traceable and governable. Users should be able to move seamlessly between three mutually synchronized workspaces: Geographic Explorer (where activity appears and where coverage is weak), Research Workspace (search, review, compare and operate), and Insights Dashboard (evidence for decisions). A governed content pipeline powers all three. [H/P/N]
+1.3 Outcome statement
+A university researcher finds comparable work before starting a project; an institutional editor contributes structured records without corrupting the catalog; reviewers validate provenance and metadata; administrators understand coverage; decision-makers identify research distribution and candidate investment opportunities with explicit uncertainty.
+1.4 Product principles
+Evidence before spectacle: every number, region shade and insight is traceable to the underlying records, filters, update time and coverage status.
+One query, three perspectives: map, results and dashboard share a single canonical filter/search state; changing one view updates the others.
+Geography is a lens, not the database: the same study can have an origin institution, contributors, multiple affiliations, fieldwork locations and research subjects; none should be conflated.
+No false absences: a zero count means “no records in the current dataset and filter scope,” not automatically “no research exists.”
+Accessible Arabic by default: right-to-left is a first-class design system, with semantic charts, keyboard-compatible mapping, readable numerals and English switching.
+Human accountability over AI automation: AI can suggest matches, summaries and anomalies but cannot independently certify research, delete records or publish without appropriate authorized review.
+2. Scope, releases and explicit exclusions
+Release
+Included
+Excluded / gated
+P0 — trustworthy foundation
+Identity and institution model; published catalog; canonical search/filters; basic interactive map; record detail; editor form; reviewer workflow; import preview; audit trail; essential quality dashboard; permissions
+Unreviewed AI-generated records; unverified gap rankings; public access to drafts
+P1 — intelligence workspace
+Advanced geographic layers; side-by-side comparison; profile pages; coverage-aware gap matrix; trends; collaboration view; bulk governance; advanced exports; explainable smart-search assistance
+Autonomous scholarly judgment; causal claims from counts
+P2 — later evolution
+DOI/ORCID and other source integrations where licensed; alerts; saved views; research collaboration requests; public API; deeper topic modeling; policy simulation
+Automatic scraping of restricted research or undocumented external integrations
+
+Out of scope for first release: hosting full copyrighted papers without explicit permission; creating a national accreditation authority; determining scientific merit from metadata or AI scores; fabricating affiliations or institutional counts; replacing existing universities’ internal research-management systems; automated investment decisions.
+3. Source inventory and fidelity decisions
+Source
+What it actually establishes
+How PRD treats it
+HTML: Syria Research Observatory v2 prototype
+Interactive SVG Syria map, 14 governorates and city drill-down; 150 seeded demo research records; linked facets; smart keyword matching; comparisons; dashboard; data entry, import/export, roles, governance, database handoff
+Primary functional reference [H]. Its seed data, client role switcher and local storage are demonstration mechanisms only.
+PDF: National Syrian Scientific Research platform, 14-slide presentation
+Fragmentation problem; scientific work across universities, theses, hospitals, labs, institutes; central repository; four roles and staged review
+Vision/governance reference [P]; do not infer detailed interactions from it.
+Current product brief
+Three major interactive workspaces; governorate/institution distribution; gaps and improvement opportunities; design decisions explained; AI-led build workflow
+Design extension [N], with explicitly marked design and policy assumptions.
+
+Known prototype limits to correct: the map aggregates project records by governorate/city and is not yet a full institution-level geospatial directory; the `UNIS` reference list and SQL schema largely assume universities, not hospitals/centers/labs. “Smart search” is rule/keyword/synonym matching—not trained semantic ranking. Roles and audit history are simulated in the browser. Its 150 seed projects are generated records, not an official count. The dashboard’s red zero cells are not validated evidence of scientific absence.
+4. Users, organizational roles and tasks
+Persona / access
+Core job-to-be-done
+Critical controls
+Public reader / student
+Find relevant publications, understand coverage, cite or follow sources
+Published-only visibility, clear provenance, search, map, comparison, accessible export
+Researcher / contributor
+Avoid duplicate work and explore similar themes across institutions
+Detailed study records, cross-institution views, related work, submission through editor or approved channel
+Institutional editor
+Register and repair research attributed to an authorized institution
+Institution-scoped authoring, staged upload, validation, status tracking
+Reviewer / scientific data steward
+Confirm metadata, source legitimacy and publication readiness
+Review queue, side-by-side changes, duplicate flags, reasoned decisions
+Platform administrator
+Manage taxonomies, coverage, accounts, policy, ingestion, quality
+Organization and role directory, audit, data quality rules, configuration
+Decision-maker / analyst
+Identify patterns, documented gaps and candidate interventions
+Coverage-qualified dashboards, saved comparative filters, provenance and exports
+
+Authorization design: Reader, Editor, Reviewer, Admin are the four baseline roles [H/P]. “Analyst” is initially a permission bundle rather than an unrestricted fifth role [N]. Users may belong to one or more organizations with scopes; privileges are enforced by the backend and rechecked for every endpoint and export.
+5. Information architecture and navigation
+5.1 Primary navigation (desktop)
+Section
+Purpose
+Default content
+Overview / الرئيسية
+Orientation and trustworthy snapshot
+Key totals, data freshness, collection coverage, entry points and alerts
+Explore Map / الخريطة
+Geographic discovery and distribution
+Governorates, institution layer, map legend, layer controls, details
+Research Workspace / مساحة الأبحاث
+Search, filter, inspect and compare
+Search, facet drawer, sortable results, comparison tray, detail routes
+Insights / المؤشرات
+Interpretation and decision support
+Temporal trends, distributions, gaps, benchmark context, confidence
+Governance / الحوكمة
+Secure operations for authorized users
+Review queue, submissions, imports, quality, taxonomy, audit
+
+Why separated: the prototype overlays many tools on one map and a dashboard takeover. A production-ready information architecture separates the user’s three primary mental modes—explore, work and decide—while preserving filters, so cognitive load decreases without fragmenting analysis. Governance appears only if authorized. [N]
+5.2 Cross-cutting shell
+A compact global header contains product identity, search access, Arabic/English switch, account and institution context, saved current-view link, and last data refresh. No decorative KPIs are shown without scope labels.
+A context bar shows current scope: Published records | Date period | Geography | Institution types | Subject | Applied filters. A single Clear filters action restores the intended default.
+A collapsible filter rail and a reusable right-side record drawer on desktop (bottom sheet on mobile) provide detail without losing map position or result order. Full route pages remain available for deep links, browser history and accessibility.
+Use URL-addressable view state for filters, map viewport where practical, selected insight and comparison set; never rely exclusively on localStorage to share a view. Sensitive data and nonpublic IDs must not leak through links.
+6. Canonical navigation and state contracts
+Canonical filter schema (initial): `q`, `governorate_ids[]`, `city_ids[]`, `institution_ids[]`, `institution_types[]`, `sector_ids[]`, `specialty_ids[]`, `branch_ids[]`, `research_types[]`, `years[]`, `year_from`, `year_to`, `author_ids[]`, `keywords[]`, `statuses[]` (authorized only), `source_quality`, `coverage_status`, `sort`, `page`. Values use stable IDs, not free-form display names. [H/N]
+Synchronization: a facet/map click updates the canonical state, chips, count, results and map/dashboard; all fetch requests use the same scoped snapshot; facet options update with remaining counts and retain selected values.
+Selection: selected record(s), map selection and compare tray are distinct state objects; changing filters must not silently erase comparisons. If comparisons fall outside the current scope, show why and offer remove/restore.
+Deep links: loading a shared link reconstructs the same user-authorized filter/view state and reports inaccessible or no-longer-available records clearly.
+All states: loading (skeleton), no results (suggest clear controls), no coverage data, errors/retry, offline/read-only and permissions denied must be designed before polished charts.
+7. Geographic Explorer — requirements and UX
+MAP-001 — Syrian geographic navigation  [P0]
+Requirement. Show an accurate Syria governorate layer with all 14 governorates; permit hover/focus, click to select, zoom/pan/reset, and keyboard-accessible non-map equivalent. Drill down to cities, institutions and record clusters as zoom level/data permit.
+UX / decision rationale. Progressive geographic disclosure prevents hundreds of overlapping pins; map alternatives serve keyboard, screen-reader and low-bandwidth users.
+Acceptance criteria. Selecting a governorate filters matching records in every workspace; a user can return to the national view; keyboard list has identical selection semantics; viewport and filters can be restored by URL.
+Traceability. [H/N].
+MAP-002 — Institutional and sector layers  [P0]
+Requirement. Allow toggles for universities, hospitals, research centers, laboratories, institutes and other registered organizations. Each institution has a verified location (or explicit “location not verified”) and a detail route. Support sector and parent/child hierarchy.
+UX / decision rationale. The project spans sectors, while the HTML’s university-centric references would otherwise hide hospitals and centers. Layer toggles and a restrained legend prevent confusion.
+Acceptance criteria. A public user can toggle a sector, inspect institution count and navigate to a verified institution profile; location-unverified entities appear in a directory and cannot be silently pinned to guessed coordinates.
+Traceability. [N].
+MAP-003 — Quantitative map encodings  [P0]
+Requirement. Support proportional cluster bubbles for record counts and a choropleth/coverage layer with a metric selector. Specify metric, unit, period, publication status, denominator, coverage completeness and last refresh in the legend.
+UX / decision rationale. A map’s color implies meaning; one color scale cannot simultaneously represent activity, opportunity, completeness and institutional quality.
+Acceptance criteria. Bubble size correlates monotonically with count; colors have text labels; legend updates with filters and has a table alternative; no metric silently switches on zoom.
+Traceability. [H/N].
+MAP-004 — Geographic drill-down & detail  [P0]
+Requirement. Click a governorate, city, institution or cluster to open a contextual panel: counts, top sectors/specialties, active filters, coverage status, data freshness, institution breakdown and “Open matching research.”
+UX / decision rationale. The user should retain spatial context while moving from abstract geography into actionable records.
+Acceptance criteria. Panel reflects shared query, supports open/close without resetting filters, has meaningful loading/empty states and a visible route to the research workspace.
+Traceability. [H/N].
+MAP-005 — Coverage-aware gap mode  [P1]
+Requirement. Provide two clearly separated lenses: (A) observed record density and (B) evidence-qualified opportunity indicators. For governorate × domain cells, show observed count, institution coverage, reporting period, expected baseline (if approved), completeness and reason for flagging.
+UX / decision rationale. The current prototype marks zero-count cells red. An ethical decision tool must distinguish under-observation from verified underinvestment.
+Acceptance criteria. Every “gap” can be expanded to show numerator, denominator, coverage quality, methodology and a note “No registered records ≠ no existing research”; insufficient coverage produces an “Unknown / insufficient data” state, never a negative verdict.
+Traceability. [H/N].
+MAP-006 — Heatmap and collaboration networks  [P1]
+Requirement. Offer optional density overlay and cross-institution collaboration edges. Edges use confirmed shared researcher identities or explicit co-authorship/institution relationships, not text-name coincidence; provide a ranked table alternative.
+UX / decision rationale. These views reveal clusters and connected work but become misleading if name disambiguation is weak.
+Acceptance criteria. Users can switch overlays independently; edge tooltip explains evidence and count; ambiguous identities are excluded/flagged pending resolution; map remains navigable when overlays are off.
+Traceability. [H/N].
+MAP-007 — Temporal exploration  [P1]
+Requirement. Filter multiple years or a continuous range and optionally animate year-by-year changes with a pause/step alternative. Default to a static range; respect reduced motion.
+UX / decision rationale. Temporal change is a critical analytical question but autoplay can obscure comparisons and harm accessibility.
+Acceptance criteria. Year selection updates shared data; an accessible table shows equivalent yearly values; no fabricated interpolated years.
+Traceability. [H/N].
+8. Research Workspace — discovery and analysis
+RES-001 — Search and linked filters  [P0]
+Requirement. Provide prominent full-text search of titles, abstracts, keywords, author, institution and subject, plus hierarchical and multi-select facets for geography, institution type, institution, field, branch, research type, year and publication/source status. Normalize Arabic orthographic variants safely.
+UX / decision rationale. Most users arrive with a known topic rather than a map coordinate. Faceted search combines immediate discovery with transparent control.
+Acceptance criteria. A query changes result count and map/dashboard consistently; filter chips can be removed independently; Arabic diacritics are handled; filters have keyboard and clear-all support; no unpublished records leak to the public.
+Traceability. [H/N].
+RES-002 — Explainable assisted search  [P1]
+Requirement. Translate natural-language questions into editable structured chips (e.g., “AI theses in Aleppo after 2023”) and ranked results with match explanations. Start with audited synonym/keyword logic and later permit semantic embeddings only behind evaluation and confidence controls.
+UX / decision rationale. The prototype’s transparent keyword matching is a safe baseline; generative/embedding suggestions must not silently override precise filters.
+Acceptance criteria. User sees extracted topic, region, institution, year and type; can remove/change each; explanation distinguishes exact filters, synonyms and semantic similarity; system can fall back to keyword mode.
+Traceability. [H/N].
+RES-003 — Results information hierarchy  [P0]
+Requirement. Show a compact result card/table with localized title, authors, year, research type, institution(s), location, matched terms, source availability, status (authorized users), and stable ID. Include relevant sorting and pagination or virtualized results.
+UX / decision rationale. Researchers scan titles and evidence before administrative metadata. Persistent compare action is more useful than multiple decorative tags.
+Acceptance criteria. Cards expose title and provenance without opening; selecting a card opens detail; sort/filter and scroll position survive return; public users see only published status.
+Traceability. [H/N].
+RES-004 — Record detail and source provenance  [P0]
+Requirement. Dedicated detail page and contextual preview show bilingual titles/abstracts where provided; authors with roles; all organizations; academic taxonomy; research and fieldwork locations separately; dates; type; keywords; identifiers; source URL or licensed file; review/publication metadata; related research.
+UX / decision rationale. A “research record” is a citable object, not just a card. It must distinguish metadata registration from peer-reviewed scientific validity.
+Acceptance criteria. Every published record shows stable URL, citation-ready fields, source link status, verification statement, last updated timestamp and “Report correction”; missing fields say “Not supplied.”
+Traceability. [H/N].
+RES-005 — Compare 2–8 records  [P1]
+Requirement. Support selection of two to eight studies into a persistent comparison tray. Compare institution(s), specialty, methodology where available, year, type, authors, keywords, abstract and source/quality indicators; visually mark differences with text, not color alone.
+UX / decision rationale. The HTML comparison tray is a strong decision aid. A matrix makes similarities explicit before beginning a potentially duplicative study.
+Acceptance criteria. Compare is disabled for fewer than two; every differing row has a visible marker; long abstracts can collapse; comparison respects permissions and remains available via shareable scoped link.
+Traceability. [H].
+RES-006 — Related research and topic exploration  [P1]
+Requirement. Recommend related published records using explained connections (same specialty, keywords, cited authors, verified associations). Provide “why shown” and ability to exclude an irrelevant match.
+UX / decision rationale. Researchers should understand recommendation logic and avoid treating similarity scores as claims of originality.
+Acceptance criteria. Every suggestion has visible evidence of relation; never displays drafts to unauthorized users; empty related results are explained.
+Traceability. [H/N].
+RES-007 — Institutional and specialty profiles  [P1]
+Requirement. Create drill-down pages with the institutional identity, type, locations, parent system, research volumes, coverage flags, people, leading fields, recent works, completeness and collaboration partners. Provide equivalent profiles for specialties.
+UX / decision rationale. Institution and topic profiles connect map, operations and analytics without trapping users inside a modal.
+Acceptance criteria. Profile totals equal matching published records under current filters; users can navigate from record, map and dashboard; low coverage is visible; no unsupported rankings or performance labels.
+Traceability. [H/N].
+RES-008 — Saved views and export  [P1]
+Requirement. Support shareable filters and exports to CSV, XLSX and JSON, with permissions, selected columns, localized headings, filters, export date and provenance. Larger asynchronous exports require a job/status UI.
+UX / decision rationale. Research analysis often continues outside the platform; export must preserve the meaning of a scoped query.
+Acceptance criteria. Exported rows equal authorized query (not just visible page); export excludes confidential fields; metadata includes applied scope, timestamp and schema version; CSV injection values are neutralized.
+Traceability. [H/N].
+9. Insights Dashboard — actionable intelligence
+INS-001 — Decision-ready overview  [P0]
+Requirement. Display contextual KPI cards for verified published research records, contributing institutions, verified researchers (where deduplicated), covered governorates, period and latest update. Distinguish raw count from coverage-adjusted measures.
+UX / decision rationale. The prototype exposes counts; production requires explicit denominators and time/status labels to avoid overclaiming.
+Acceptance criteria. Each metric has definition, applied filters, data freshness, click-through drill-down and a no-data state; numbers reconcile with server aggregates for the same query.
+Traceability. [H/N].
+INS-002 — Distribution and growth  [P0]
+Requirement. Show records by year, governorate, institution, sector, specialty, branch and type; include a sortable accompanying data table and click-to-filter interaction.
+UX / decision rationale. Multiple distributions reveal differences between volume, geography and subject concentration without requiring complex visuals.
+Acceptance criteria. Every chart uses labeled axes/units; supports keyboard selection and table; clicking an item adjusts shared state; small sample/no coverage has an explicit warning.
+Traceability. [H/N].
+INS-003 — Gap / opportunity matrix  [P1]
+Requirement. Show governorate × discipline and institution-type × discipline matrices with cells for records, reporting institutions, coverage percent and gaps only when methodology conditions are satisfied. Allow comparison with previous period and configurable, approved baselines.
+UX / decision rationale. A zero is not a measure of societal need. Separate metadata coverage risk from actual research opportunity.
+Acceptance criteria. Cells expose a method tooltip and evidence panel; unqualified cells read “Insufficient data”; configurable thresholds are versioned and documented; stakeholder can export the evidence behind each flag.
+Traceability. [H/N].
+INS-004 — Quality and pipeline health  [P0]
+Requirement. Private dashboard displays completeness, validation exceptions, duplicate candidates, ingestion errors, submission-to-publication funnel, queue age, time-to-decision and institution reporting cadence.
+UX / decision rationale. Institutional operators need to improve data before interpreting national patterns. This is as essential as public charts.
+Acceptance criteria. Metrics link to actionable queues; unresolved records have owners and timestamps; public dashboard never reveals reviewer comments or private statuses.
+Traceability. [H/N].
+INS-005 — Institution comparison and equity context  [P1]
+Requirement. Permit comparing institution or governorate activity across periods, normalized by explicitly sourced denominator if available (e.g., registered contributing institutions). Show absolute values next to normalized rates and missing denominator warnings.
+UX / decision rationale. Large institutions dominate raw volume. A fair comparison requires context and strong caveats.
+Acceptance criteria. Users can see numerator/denominator and sources; missing baselines disable rate metrics; comparisons never label low-coverage entities “underperforming.”
+Traceability. [N].
+INS-006 — Decision annotation and export  [P1]
+Requirement. Allow authorized analysts to save a scoped dashboard snapshot with interpretations, confidence/limitations notes, a last-refresh value, and export for review.
+UX / decision rationale. Decisions must be auditable and reproducible rather than screenshots with unknown filters.
+Acceptance criteria. Saved insight references dataset version, metric definition, query and author; refreshing does not silently rewrite previously saved conclusions.
+Traceability. [N].
+10. Record creation, ingestion and editorial workflow
+OPS-001 — Structured record editor  [P0]
+Requirement. Editor creates/updates research in grouped steps: identity and type; contributors; institutions and location; taxonomy; abstract, keywords and source; review. Required fields and constraints change by research type. Autosave server-side drafts, resume and show errors inline.
+UX / decision rationale. The HTML form groups basics/researchers/academic location/content; production needs recoverability, dynamic validation and multi-institution records.
+Acceptance criteria. Required fields are enforced server-side; nested hierarchy is valid; concurrent edit shows conflict; draft is recoverable; invalid research cannot publish via direct API.
+Traceability. [H/N].
+OPS-002 — Staged CSV/Excel import  [P0]
+Requirement. Preserve the four-step concept: file upload → column mapping → validation → review/commit. Add secure parsing, async processing, row-level results, dry run, duplicate matching, known reference normalization, batch rollback policy and audit.
+UX / decision rationale. Preview-before-commit prevents uncontrolled ingestion, especially when incoming institutions use heterogeneous schemas.
+Acceptance criteria. No row is persisted before explicit commit; error rows are never silently dropped; partial-import policy is visible; batch status can be resumed; import records actor, source file and transformed values; template is downloadable.
+Traceability. [H/N].
+OPS-003 — Governed publication states  [P0]
+Requirement. Support states draft → entered → review → approved → published, plus rejected with required reason, returned-for-changes and archived/superseded if approved. Editors submit; reviewers assess; only authorized reviewers/admins publish. Require independent review policy where applicable.
+UX / decision rationale. Existence in the catalog is not automatic institutional verification or scholarly accreditation; state transitions must be explicit and accountable.
+Acceptance criteria. Each transition checks allowed origin/target, required fields and actor permissions; rejection requires reason; public endpoint includes only published; every change is immutable-audited.
+Traceability. [H/P/N].
+OPS-004 — Quality checks and duplicate review  [P0]
+Requirement. Flag missing fields, invalid geographic hierarchy, unrecognized organization, implausible year, source problems, suspicious duplicates and researcher ambiguity. Suggestions must be reversible, with human resolution and documented criteria.
+UX / decision rationale. The prototype’s required-field score and 85% title similarity are starting heuristics—not definitive duplicate detection.
+Acceptance criteria. A reviewer can distinguish errors vs warnings, inspect matched evidence, merge/link/mark-not-duplicate with audit; no auto-deletion/auto-rejection by an AI model.
+Traceability. [H/N].
+OPS-005 — Taxonomy and reference-data administration  [P0]
+Requirement. Admin manages governorates/cities, organization types and hierarchies, institutions, academic disciplines, branches, research types, keyword synonyms, aliases and configurable custom fields. Stable IDs and history survive renames.
+UX / decision rationale. Free-text universities in the prototype would create fragmented aggregates; shared vocabularies underpin every filter, map and dashboard.
+Acceptance criteria. Aliases map to canonical entities, historical records remain addressable, changes trigger controlled reindexing and impact preview; admins cannot break required schema via custom fields.
+Traceability. [H/N].
+OPS-006 — Auditability, correction and access  [P0]
+Requirement. Store every creation, update, status transition, bulk import, taxonomy change and permission change in a server-side append-only audit log with actor, timestamp, before/after, reason and request ID. Expose a public correction channel.
+UX / decision rationale. Browser-local audit from the prototype is not trustworthy in production; academic provenance requires accountability.
+Acceptance criteria. Audit cannot be edited via app UI; export follows authorization; public correction creates ticket, never silently edits a published record.
+Traceability. [H/N].
+11. Conceptual data model and field definitions
+11.1 Core entities
+Entity
+Minimum attributes
+Key relations
+ResearchRecord
+id, stable_research_id, title_ar/en, abstract_ar/en, research_type, year, status, dates, DOI/URL, license, provenance, version
+Many contributors, affiliations, subjects, study_locations, sources, keywords
+Organization
+id, type, name_ar/en, aliases, governing_entity, verification_status, website, city_id, address/coordinate confidence
+Parent/child, many sites, many ResearchRecord affiliations
+OrganizationSite
+site_id, organization_id, geographic coordinates, locality, coordinate source/accuracy
+One organization can have multiple university/hospital/lab locations
+Researcher
+id, Arabic/English name, optional persistent identifier, disambiguation status
+Many organizations and records through contributor relation
+Taxonomy
+discipline, specialty, branch, sector, research type, keywords/synonyms, custom field definitions
+Reference IDs, versioned mappings and aliases
+Review/Audit
+state, actor, organization, decision reason, version, events, sources
+Transitions and change history per record
+CoverageReport
+reporting entity, period, scope, submissions, expected reporting, completeness, verification state
+Powers gap qualification, freshness and comparative rates
+
+11.2 Required data constraints
+Identity: use UUID/ULID or database IDs internally. Preserve the prototype’s human-readable pattern `SRP-{YYYY}-{GOV}-{######}` as a display/reference identifier only after collision-safe backend generation; support external persistent IDs where verified.
+Many-to-many: one record may belong to multiple institutions and contributors; record source ownership is distinct from intellectual authorship.
+Research location: distinguish institution registered site, author affiliation, research execution site, study subject geography and map aggregation policy.
+Coverage and completeness: a reporting institution may confirm zero submissions, may not have reported, or may be out of scope; these cases must not collapse into one `0`.
+Source and rights: metadata rights, document file license, access type, DOI/URL status, embargo and withdrawal must be explicit.
+Temporal model: distinguish publication year, submission date, review date, research period, import timestamp and source last-verified date.
+Provenance: retain original file, external URL or institutional declaration, import batch, reviewer evidence and record revision.
+Institution governance: universities, hospitals, centers, labs, academic institutes and other types share a canonical organization taxonomy, not separate hard-coded single-value fields.
+11.3 Source status and opportunity semantics
+Use distinct status vocabulary: record review status (draft/entered/review/approved/published/rejected), source availability (full text/abstract only/metadata only/restricted/broken), organization verification (verified/unverified/disputed), reporting coverage (complete/partial/missing/unknown), and gap inference (observed low count/qualified potential opportunity/insufficient evidence). Do not substitute one status for another.
+12. Roles and privacy / authorization matrix
+Capability
+Reader
+Editor (scoped)
+Reviewer
+Admin
+Published read / public map / public export
+Yes
+Yes
+Yes
+Yes
+Read drafts / review records
+No
+Own institution only
+Assigned scope
+Configured scope
+Create and edit record
+No
+Assigned institutions
+Only if separately granted
+Yes
+Bulk import and submit
+No
+Assigned institutions
+No by default
+Yes
+Approve / reject / publish
+No
+No
+Assigned scope
+Yes
+Manage taxonomy / organizations / user roles
+No
+No
+No
+Yes
+Quality and duplicate queues
+No
+Own records health
+Assigned scope
+Yes
+Internal audit / reviewer notes
+No
+Own changes only
+Assigned scope
+Yes
+
+Least-privilege rule: use backend policy (e.g., role + institution scope + record owner + workflow state). Public analytics must use only authorized records or approved aggregated datasets. Do not expose contributor personal contact information, unpublished abstracts, private reviewer comments or embargoed files by way of filters, counts, exports, cached responses or AI prompts. [N]
+13. UX system, rationale and interface specifications
+13.1 Visual hierarchy and shell
+Design direction: credible academic/public-infrastructure aesthetic; restrained navy + teal, gold only for meaningful emphasis, soft neutral backgrounds, ample whitespace. Prototype palette is a reference, not a binding visual identity.
+Desktop layout: on 1440px, global header; slim primary nav; shared context/filter bar; content canvas; optional collapsible left/right inspector respecting RTL. Default workspaces are separate routes, not a wall of all widgets.
+Density: reduce visual clutter by prioritizing one primary CTA per surface and progressively disclosing analytical controls. Avoid decorative badges, emoji-dependent labels and oversized heading bars.
+Typography: use an Arabic typeface approved for legibility and platform availability with robust Latin pairing; test Arabic shaping and diacritics in tables and charts. Use semantic sizes (H1/H2/body/caption) and consistent 8px spacing tokens.
+Interactions: hover never exclusively reveals important information; use contextual panel, keyboard focus and tap targets. Map, table and chart selection share clear selected states and a single undo/clear path.
+Responsive: desktop ≥1200 with map and side panels; tablet 768–1199 with collapsible rail; mobile ≤767 with one-pane layout, map list alternative, bottom-sheet details and independent dashboard charts.
+Color: no red-only “gap” states; show text labels, patterns/icons and confidence. Design color tokens in both light and dark theme, keeping contrast and print/export behavior.
+13.2 UX decision records (ADR-UX)
+ID
+Decision
+Why / risk prevented
+ADR-01
+Three workspaces, one query context
+Prevents mode overload while retaining continuity between exploration, record work and decisions.
+ADR-02
+Map as progressive drill-down; accessible directory counterpart
+Protects usability in dense city clusters and for non-pointer users.
+ADR-03
+Separate observed density from research opportunity
+Avoids implying that unreported records are proven institutional gaps.
+ADR-04
+Contextual drawers plus deep-linkable detail pages
+Preserves navigation state while supporting citation, browser history and SEO.
+ADR-05
+Human-gated import and publication
+Reduces data corruption, reputational risk and scientific misrepresentation.
+ADR-06
+Visible search interpretation and “why matched”
+Keeps AI recommendations inspectable and correctable.
+ADR-07
+Bilingual content-aware layouts and source language labels
+Prevents RTL mirroring bugs and unreadable mixed-script academic citations.
+ADR-08
+Data freshness and evidence attached to every analytical claim
+Makes dashboard screenshots defensible and reproducible.
+
+13.3 Core user flows (must be prototyped)
+Research discovery: enter topic → inspect suggested interpretation → apply facets → inspect results/map → open detail → check original source → compare or export.
+Geographic exploration: choose metric → choose governorate → inspect institutions → switch sector/subject → inspect evidence and coverage → open matching studies.
+Decision insight: choose period and cohort → review KPI definitions → explore top distributions → open gap evidence → save/export a qualified insight.
+Submission: editor selects organization → creates structured draft → sees missing fields and duplicate candidates → reviews preview → submits → tracks feedback.
+Editorial review: reviewer opens assigned queue → examines provenance/diffs/duplicates → requests correction or approves → publishes with audit.
+Bulk import: administrator uploads file → maps columns → resolves aliases → reviews validation errors/warnings → confirms batch → monitors outcome and rollback policy.
+13.4 Content and feedback microcopy
+No research records: “No published records match these filters. This does not establish that no research exists.” / “لا توجد سجلات منشورة تطابق هذه المرشحات. لا يعني ذلك عدم وجود أبحاث.”
+Insufficient reporting: “Coverage is incomplete for this institution or period. Gap conclusions are unavailable.” / “التغطية غير مكتملة لهذه الجهة أو الفترة، ولا يمكن استنتاج فجوة بحثية موثوقة.”
+AI relevance: “Suggested based on subject, keywords and year. Verify the original source.” / “اقتراح مبني على الموضوع والكلمات المفتاحية والسنة. يُرجى مراجعة المصدر الأصلي.”
+Submission progress: “Saved as draft. This record is not publicly visible until review and publication.” / “حُفظ البحث كمسودة، ولن يظهر للعموم قبل المراجعة والنشر.”
+14. Accessibility, language and inclusion
+Accessibility target: WCAG 2.2 AA design and testing target, including keyboard order, landmarks, modal focus management, error summaries, visible focus, contrast, scalable text and adequate target size. Verify across browsers rather than claiming compliance by default.
+Map alternatives: governorate list, data table, keyboard map region selection, legends readable without color, tooltips reachable by focus; assistive tech should not be forced into pan/zoom.
+Arabic-first: correct RTL navigation, filters, pagination and modals; LTR isolation for DOIs, URLs, email and English titles; Arabic/Western numeral option by locale; no mirroring of charts where time direction would be misleading.
+Content localization: fields may have Arabic, English, both or unknown; never machine-translate official titles without labeling them as suggested, not verified translations.
+Network and device inclusivity: low-bandwidth mode disables expensive tiles/animation, prioritizes textual data and works on mid-range mobile devices; retain core discovery without map imagery.
+15. Non-functional requirements and target SLOs
+The following are proposed engineering acceptance targets, not measurements of the prototype. Validate through realistic staging datasets and revise with institutional operators.
+Dimension
+Proposed first-release target / test
+Availability
+≥99.5% monthly availability target for public read endpoints, excluding communicated maintenance; monitoring + incident procedure.
+Performance
+p75 page LCP ≤2.5s on representative desktop, ≤4.0s on mid-range mobile / constrained connection; search p95 ≤1.5s for typical indexed queries; facet/map response p95 ≤2.0s on planned load.
+Scale
+Validate at 100k+ records, 1k+ organizations and simultaneous search/filter workloads; cluster data server-side; paginated APIs.
+Security
+TLS, RBAC and organization scope on API, MFA for privileged roles, input sanitization, file scanning, rate limits, abuse controls and secrets management.
+Privacy
+Data minimization, purpose-based access, explicit public/private field classification, retention and deletion/rectification procedures confirmed with stakeholders.
+Data integrity
+Unique and indexed keys, referential integrity, schema migrations, scheduled backups, restore drills, import idempotency and transaction logs.
+Observability
+Structured logs, traces, error budgets, ingestion metrics, dashboard freshness, AI suggestion metrics and auditable administrator actions.
+Resilience
+Useful offline/error states, retries, staged batch resumability and explicit stale-cache indicators.
+Compatibility
+Current major Chrome/Firefox/Edge/Safari; responsive breakpoints; no essential feature depends on pointer hover.
+
+16. Technical architecture and AI implementation constraints
+16.1 Suggested architecture (reference, not predetermined stack)
+Frontend: accessible component-based web app with typed domain models, localization support, query-state routing, chart/table parity and geospatial renderer that accepts vector governorate geometry and institutional point sets. Backend: authenticated API, organization/record workflow service, import queue, audit/event service, analytics aggregates, search index. Storage: relational database (PostgreSQL is suggested by the HTML’s handoff schema) with GIS extensions if appropriate; object storage for licensed attachments; indexed search service. Pipelines: deduplication/validation, canonical taxonomy linking, geographic clustering and scheduled aggregate refresh. [H/N]
+16.2 Suggested API contracts
+`GET /v1/research` with typed filters, sort, cursor pagination and public-scope enforcement; `GET /v1/research/{id}`; `GET /v1/research/{id}/related`.
+`GET /v1/map/aggregates?metric=&scope=&zoom=&bbox=` returns geospatial units, count, dataset version, known coverage and warnings.
+`GET /v1/insights/overview|timeseries|distributions|gap-matrix` all accept the same serialized filter object and return provenance, measurement definitions and data freshness.
+`GET /v1/organizations` and `GET /v1/organizations/{id}`, including sites, hierarchy, verified type and reporting coverage.
+`POST/PATCH /v1/editor/research` with version/precondition; `POST /v1/review/{id}/transition` with permitted transition and reason.
+`POST /v1/imports` → mapping preview → validation report → explicit commit → status/history and documented rollback rules.
+`GET/POST /v1/taxonomies`, `GET /v1/audit` and permission endpoints protected by backend policy.
+`POST /v1/search/interpret` returns editable parsed filters, ranked suggestions, confidence labels and an explicit source of interpretation.
+16.3 AI tool implementation contract
+Do not infer functionality from screenshots alone. Use this PRD, the HTML’s behavior, and the acceptance criteria as the build backlog. Tag any additional proposed UI behavior for review.
+Build from schemas and tests. Define canonical types, mock API contract, deterministic fixtures, workflow state machine and role-permission tests before generating polished interface code.
+Generate believable demo data only when tagged synthetic. UI must show “Sample dataset” prominently; never present generated names, institutions, totals or coverage as public facts. Real data import requires provenance.
+Validate AI outputs. AI-assisted taxonomy suggestions, duplicate flags, translations, query interpretation and topic similarity are advisory; store provenance/model/version where relevant and require editorial confirmation for material publication actions.
+Human security review. AI-generated authorization logic, file parsers, geo joins, data exports and cross-origin links require manual review, automated security tests and least-privilege threat modeling.
+No silent domain inventions. Do not invent the number of Syrian universities, approval authorities, research performance targets, coverage baselines, or verified coordinates. Expose placeholders/configuration when not established by supplied sources.
+Delivery expectations: design tokens, component library, interaction specs, responsive flows, API schema, migration scripts, automated unit/integration/e2e tests, seeded demo environment, accessibility audit notes, and signed-off acceptance evidence.
+17. Analytics definitions and research-gap methodology
+17.1 Metric definitions
+Metric
+Definition / caveat
+Published research records
+Distinct published, public-scope research IDs, deduplicated by canonical ID; always show scope and last refresh.
+Contributing institutions
+Distinct verified organizations linked to in-scope records; separate active reporting institutions from institutions with historical records.
+Active governorates
+Distinct governorates with verified record affiliation/collection geography for chosen metric; specify mapping rule.
+Researcher count
+Deduplicated verified researcher IDs, not raw author-name strings; if disambiguation incomplete, label as estimated contributors.
+Metadata completeness
+Weighted or unweighted required-field presence with a published formula by research type; never substitute for scientific quality.
+Coverage ratio
+Reporting organizations verified / organizations expected to report in a defined cohort and period; denominator comes from an approved inventory.
+Duplicate candidate rate
+Unresolved potential duplicate pairs divided by eligible records, not automatically confirmed duplication.
+Time to publish
+Time from submission to public publication for completed workflow records, segmented by institution/period.
+
+17.2 Rules for “gap” and “opportunity” labels
+Choose the analytical unit: governorate × research topic × time window × organization sector and clarify whether measures use institution affiliation or fieldwork location.
+Calculate observed count from published and provenance-verified records; display reporting completeness and missingness before interpreting the count.
+Use a predefined eligibility threshold for claiming a comparison is interpretable; until agreed, display “Insufficient coverage” instead of an opportunity score.
+Compare with approved baselines such as history or reporting-adjusted peers; label methodological assumptions, confidence and normalization.
+Show candidate opportunity only when coverage is sufficient and an approved comparison identifies a disparity. This flag is a prompt for expert investigation, not a claim of national research need.
+Store the scoring/version logic and enable drill-down to underlying records and missing-reporting organizations. Allow human annotation and methodological disputes.
+Illustrative signal, not a product fact: a governorate with 3 indexed records and only 10% expected institutional reporting cannot be ranked below another with 15 records and 95% reporting as a proven “research gap.” The first has a coverage gap; it may or may not have a research-production gap.
+18. Validation, testing, success and rollout
+18.1 Definition of done and critical test scenarios
+Permission safety: API queries, details, map counts, autocomplete, exports and dashboards return no private/unpublished data to public readers; changing client role selector cannot escalate access.
+Sync consistency: a governorate filter from map yields the same scoped count, list and dashboard aggregate; reloading a deep link reproduces state; clearing filters restores baseline.
+Institutional scope: an editor cannot alter another organization’s record or upload into an unassigned institution; multi-affiliated records follow an approved ownership policy.
+Coverage honesty: zero/no coverage/unknown are distinct UI and API states; map and dashboard do not call an unqualified zero a “gap.”
+Review policy: unauthorized state transition fails; approval records actor/time/reason; published-only content is public; rejection has reason; editor sees corrections.
+Import integrity: invalid rows stay uncommitted; rerunning an idempotent batch does not duplicate records; taxonomy alias and row warnings are traceable.
+Search explainability: parsed filters and suggestion explanations correspond to actual query execution; Arabic normalization does not remove meaningful field distinctions.
+Accessibility: all top tasks executable by keyboard and screen reader, responsive map table alternative, chart tables, Arabic/English and visible focus.
+Robustness: performance tests with large data; resilience to malformed CSV/XLSX, broken URLs, multiple contributors, missing coordinates, simultaneous edits and dashboard stale caches.
+18.2 Proposed product success metrics (targets to baseline)
+Discovery: median time to first relevant record, search-to-detail success, zero-result rate, relevant-source opening rate, compare usage, task success by researcher cohort.
+Contribution: submission completion, import row success after review, median review turnaround, rejection/fix cycle, percentage of records with verified source.
+Reliability and trust: published records with complete provenance, duplicate resolution time, institutional reporting coverage, audited critical changes, dashboard trust/comprehension study.
+Decision support: share of insights with visible scope and confidence, number of qualified gap investigations completed, evidence export use, reduction in incorrect “zero means none” interpretations.
+Measurement rule: propose numeric adoption/quality goals only after pilot baseline with Syrian institutions. No fabricated uplift percentage or invented national coverage target belongs in the first PRD.
+18.3 Rollout phases
+Discovery and policy alignment: validate organization taxonomy, ownership, publication/verification authorities, data agreements, baseline inventory, scope and ethics with founding stakeholders.
+P0 pilot: representative mix of university, hospital and research center; manual curation of test records; public catalog, simple map, governance, imports and quality KPIs.
+P1 analytical release: test institution profiles, comparison, thematic and collaboration layers, denominator-aware gap matrix and explainable search with research users and analysts.
+National expansion: onboarding, source integration, reporting agreements, data quality SLAs, training, third-party security/accessibility tests and ongoing public methodology updates.
+19. Open decisions requiring explicit human approval
+Decision
+Owner to confirm
+Safe default for AI builders
+Legal custodian / scientific publisher of record
+Project sponsor + institutional/legal stakeholders
+Say “platform registration/publication workflow”, not official accreditation.
+Definition of included studies and sectors
+Academic steering group
+Schema supports all named sectors, filter the pilot cohort.
+Authoritative institution inventory / coordinates
+Institutional data steward
+Imported organizations default to unverified; never guess coordinates.
+Public full-text rights, embargoes and privacy
+Legal and contributing institutions
+Metadata-only by default unless source rights allow full-text.
+Geographic attribution (affiliation vs fieldwork)
+Research methods group
+Show separate fields and explicitly selected aggregate basis.
+Researcher identity resolution / ORCID
+Data governance team
+Unverified names remain distinct candidates for review.
+Editorial approval policy and independent review
+Sponsor / reviewer board
+Review and publish require authorized reviewer, not editor.
+Gap threshold and comparison baseline
+Research-policy experts
+Show observed counts + coverage only; no ranked opportunity claims.
+Branding, hosting, official map source and accessibility sign-off
+Design/IT stakeholders
+Use neutral, editable design tokens, secure provider-agnostic architecture.
+Performance, availability and retention SLAs
+Engineering and governance
+Use proposed targets as planning hypotheses, not contractual commitments.
+
+20. AI handoff checklist and implementation sequence
+20.1 First artifacts each AI team must generate
+Design agent: clickable end-to-end flows for map, discovery, comparison, record detail, insights and governance; responsive screens; RTL/LTR design system; annotated empty/error/loading states; UX decision trace per screen.
+Architecture agent: domain entity model, access matrix, workflow state machine, event/audit schema, geospatial metric contract, versioned API definitions and threat model.
+Frontend agent: typed route/state framework, accessible design system, map/list/chart synchronization, localization and table alternatives before animation or visual polish.
+Data agent: organization/reference import mapping, verified coordinate process, canonical aliases, synthetic fixtures clearly marked, duplicate workflow, coverage-reporting schema.
+Backend agent: real authentication/authorization, indexed search, transactional imports, auditable transitions, served aggregates with metadata version and deterministic tests.
+QA agent: cross-role functional checks, CI regression, Arabic/English keyboard and screen-reader testing, performance profiles, import abuse tests, source/freshness integrity and no-false-gap tests.
+20.2 Priority implementation order
+Domain vocabulary, institutional verification model, permissions and workflow invariants.
+Canonical filtering/search API plus published-only catalog and detail pages.
+Structured editor, provenance, reviewer workflow, import validation and quality operations.
+Mapped regions and organizations, with shared filter synchronization and non-map accessibility alternative.
+Basic public/operational dashboard, metric definitions, freshness and drill-down.
+Comparison, profiles, collaboration, explainable search and evidence-qualified gap analysis.
+Hardening: security, independent audits, accessibility, usability and performance with actual data.
+20.3 Final acceptance gate
+Do not call the implementation complete unless: all P0 requirement IDs pass observable acceptance tests; real users cannot change roles client-side to gain privileges; imported real records have provenance; the institution model supports hospitals and centers beyond universities; map, operations and insights agree on counts; responsive Arabic and English flows work; zero-coverage cells are not misrepresented; and product owners have approved unresolved governance assumptions.
+Appendix A. Prototype feature mapping (not production claims)
+Prototype behavior
+Production interpretation / change
+SVG governorate and city map; cluster sizes and editable thresholds
+Keep progressive geography, add verified organization layers and metric semantics.
+Filters: governorate, city, university, specialty, branch, years, researcher, type, keywords
+Retain and extend to sectors, organization types and multi-affiliation; fix backend-authorized data scope.
+Local smart keyword/synonym matching with relevance reasons
+Keep explainability, add editable interpreted constraints and later validated semantic retrieval.
+Comparison maximum 8 records
+Retain 2–8 limit with responsive comparison table and text difference indicators.
+Dashboard: timeline, distributions, governorate comparisons, zero-cell matrix
+Retain dimensions, qualify every metric and redesign zero-cell gap logic.
+Collaboration drawn from same researcher-name text
+Use verified researcher identity / explicit coauthorship links instead of name matching.
+Create/edit, category custom fields, CSV/XLSX staged wizard, CSV/JSON/XLSX export
+Make transactional, permission-scoped and auditable; protect injection and data rights.
+Governance: quality, duplicates, queue, roles, synonyms, dictionary, SQL handoff
+Retain as modular admin routes; implement backend RBAC, canonical entities, immutable audit.
+Switchable role, localStorage persistence and 150 generated projects
+Demonstration only, never production authentication, persistent storage or national statistics.
+
+Appendix B. Screen inventory for AI UI generation
+S-01 Public overview / first-use guide; S-02 Map national view; S-03 Map selected governorate/city/institution; S-04 Map metric/layer and gap evidence panel; S-05 Research results with advanced filters; S-06 Research detail and source evidence; S-07 Comparison tray and full matrix; S-08 Institution / specialty profile; S-09 Public insights and drill-down; S-10 Authorized operational insights; S-11 Editor multi-step record creation; S-12 Editor submissions and correction loop; S-13 CSV/Excel import/mapping/validation/commit; S-14 Reviewer queue and change-diff approval; S-15 Data quality and duplicate resolution; S-16 Taxonomy/institution settings; S-17 Audit and permissions; S-18 Shared empty/error/loading/no-coverage states; S-19 Mobile map/list, comparison and responsive dashboard; S-20 Arabic/English and light/dark themes.
+Appendix C. Source provenance and caution
+HTML primary source: `syria-research-observatory_v2_prototype(1).html` supplied with this request; inspected source constants, interface controls, record functions, map functions, import wizard, governance module and draft SQL schema. PDF contextual source: `منصة وطنية للأبحاث العلمية السورية(1).pdf`, 14 slides; used only for problem framing, cross-sector intent, four roles and staged verification. This PRD is a specification and contains new recommendations explicitly marked [N]. The project requires stakeholder validation before public or official claims.

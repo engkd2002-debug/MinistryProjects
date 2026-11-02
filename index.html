@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0F172A" />
+    <meta
+      name="description"
+      content="Syrian National Research Platform — frontend foundation preview"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>منصة البحث العلمي السوري</title>
+    <script>
+      // GitHub Pages serves deep links through 404.html, which redirects here.
+      // Restore the clean route before React Router and legacy-hash migration.
+      try {
+        var route = new URLSearchParams(location.search).get('__snrp_route');
+        var base = '%BASE_URL%';
+        if (route && route.startsWith('/') && !route.startsWith('//')) {
+          var restored = new URL(base.replace(/\/$/, '') + route, location.origin);
+          if (restored.origin === location.origin && restored.pathname.startsWith(base)) {
+            history.replaceState(null, '', restored.pathname + restored.search + restored.hash);
+          }
+        }
+      } catch (e) {}
+      try {
+        var p = JSON.parse(localStorage.getItem('snrp.preferences') || '{}');
+        var t = ['light', 'dark', 'system'].includes(p.theme) ? p.theme : 'system';
+        document.documentElement.dataset.theme =
+          t === 'system'
+            ? matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light'
+            : t;
+        document.documentElement.lang = p.locale === 'en' ? 'en' : 'ar';
+        document.documentElement.dir = p.locale === 'en' ? 'ltr' : 'rtl';
+      } catch (e) {
+        document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+      }
+    </script>
+    <link rel="stylesheet" href="/src/shared/tokens/tokens.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
